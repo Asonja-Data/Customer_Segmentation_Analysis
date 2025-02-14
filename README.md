@@ -16,3 +16,156 @@ Inclusions:
   https://www.kaggle.com/code/analystoleksandra/marketing-analytics-customer-segmentation}
 - Size: 2205 rows x 39 columns 
 - Column Description
+
+| Column Name	| Description |
+|-------------|-------------|
+| Income	| Annual income of the customer |
+| Kidhome	| Number of children at home |
+| Teenhome	| Number of teenagers at home |
+| Recency |	Number of days since the last purchase |
+| MntWines	| Amount spent on wine products |
+| MntFruits	| Amount spent on fruit products |
+| MntMeatProducts |	Amount spent on meat products |
+| MntFishProducts	| Amount spent on fish products |
+| MntSweetProducts |	Amount spent on sweet products |
+| MntGoldProds	| Amount spent on gold products |
+| NumDealsPurchases	| Number of purchases using a discount |
+|NumWebPurchases	| Number of purchases made through the website |
+| NumCatalogPurchases	| Number of purchases made using a catalog |
+| NumStorePurchases	| Number of purchases made directly in-store |
+| NumWebVisitsMonth	| Number of visits to the company’s website in a month |
+| AcceptedCmp3	1 | if customer accepted campaign 3, 0 otherwise |
+| AcceptedCmp4	1 | if customer accepted campaign 4, 0 otherwise |
+| AcceptedCmp5	1 | if customer accepted campaign 5, 0 otherwise |
+| AcceptedCmp1	1   | if customer accepted campaign 1, 0 otherwise |
+| AcceptedCmp2	1 | if customer accepted campaign 2, 0 otherwise | 
+| Complain	1 | if customer complained in the last 2 years, 0 otherwise |
+| Z_CostContact |	Constant feature (unused in analysis) |
+| Z_Revenue |	Constant feature (unused in analysis) |
+| Response	1 | if customer accepted the last campaign, 0 otherwise |
+| Age	| Customer’s age |
+| Customer_Days |	Number of days since the customer’s registration |
+| marital_Divorced	1 | if the customer is divorced, 0 otherwise |
+| marital_Married	1 | if the customer is married, 0 otherwise |
+| marital_Single	1 | if the customer is single, 0 otherwise |
+| marital_Together	1 | if the customer is in a relationship, 0 otherwise |
+| marital_Widow	1 | if the customer is a widow, 0 otherwise |
+
+## Methodology
+1. Data Loading
+  Pandas library was used to load the dataset, also, the required libraries for the analysis were imported.
+  Libraries Used:
+  •	numpy – Provides support for numerical computations.
+  •	pandas – Used for data manipulation and analysis.
+  •	seaborn – Helps in creating statistical visualizations.
+  •	matplotlib.pyplot – A plotting library for data visualization.
+  •	scipy.stats – Contains statistical functions, including correlation measures.
+  The first five rows were  displayed to ensure the dataset is successfully loaded and ready for exploration.
+
+2.  Initial Data Exploration
+  - Step 1: Missing values check (no missing values found)
+  - Step 2: Duplicate rows check (184 duplicate rows)
+  - Step 3: Data type inspection
+  - Step 4: Unique values count
+  
+3. Data Cleaning
+  - Step 1: Removing duplicates
+
+  This step was to ensure data integrity and prevents skewed analysis due to redundant entries. 
+  
+  - Step 2: Removal of Unnecessary Columns
+
+  The columns Z_CostContact and Z_Revenue have all the same values. These columns will not help us to understand our customers better, hence, were deemed unnecessary for 
+  the customer segmentation analysis and were therefore dropped from the dataset using the data.drop() function.
+
+
+4. Explorative Data Analysis
+  - Step 1: Descriptive Analysis
+  - Step 2: Visualization 
+  - Step 3: Correlation Analysis
+
+      - Pearson Correlation for MntTotal, income, and age
+      - Correlation analysis of MntTotal with demographics and children
+
+        Analysis of the correlation matrix reveals a strong positive correlation between 'MntTotal' and income, and a moderate negative correlation between 'MntTotal' and 
+        'Kidhome'. Furthermore, income demonstrates a moderate negative correlation with 'Kidhome', similar in magnitude to the correlation observed between 'MntTotal' and 
+        'Kidhome', this suggests a potential relationship between income level and household size.
+      
+      - Point-Biserial correlations between MntTotal and marital status
+      - Point-Biserial correlations MntTotal and education
+      
+        Statistical analysis indicates no strong point-biserial correlation between 'MntTotal' and marital status. Similarly, while education level demonstrates a weak 
+        association with 'MntTotal' (with marginally higher spending observed among customers with PhDs and lower spending among those with Basic education), the magnitude 
+        of 
+        the effect suggests that other factors are more salient in predicting spending behavior.
+
+8. Data Transformation
+
+  Feature Engineering: For analytical purposes, a binary variable, 'In_relationship', derived from the 'marital_status' data was created. This feature indicates whether a 
+  customer is married or living with a partner, allowing us to explore the relationship between relationship status and other customer attributes. 
+  For plotting purposes, a 'marital' column was created. This new column combines the data from the five one-hot encoded marital status columns ('marital_Divorced', 
+  'marital_Married', 'marital_Single', 'marital_Together', 'marital_Widow') into a single 'marital' category, enabling the creation of more informative visualizations.
+   
+ 
+
+9. Customer Segmentation
+
+K-means clustering was applied to segment customers based on behaviour and purchase patterns. 
+
+- Step 1: Standardization
+
+  The mean value for all columns is almost zero and the standard deviation is almost 1. All the data points were replaced by their z-scores, thus ensuring that all features 
+  have equal importance in the model.
+  
+- Step 2: Principal component analysis
+
+  PCA reduces the dimensionality to two principal components and then adds these two principal components as new columns ('pc1' and 'pc2') to the DataFrame. The first 
+  principal component (pc1) captures the most variance, followed by the second (pc2).
+
+- Step3: K-Means clustering
+
+  Elbow method:
+  Based on this Elbow Method plot, K=4 appears to be the most likely candidate for the optimal number of clusters. However, the lack of a very sharp elbow suggests that the 
+  data might not have very well-defined clusters or that other values of K (5 or 6) could also be explored
+
+  Silhouette Score Analysis:
+  There is a peak in the line graph around K=5, suggesting that 5 might be the optimal number of clusters.
+  Since the Elbow Method suggested K = 5, and the Silhouette Score also improves slightly at K = 5–6, K = 5 is a reasonable choice.
+  
+- Step 4: Cluster profiling
+
+## Visualization
+
+![image](https://github.com/user-attachments/assets/c7764bca-f22b-42d6-868a-5329f0dfc460)
+![image](https://github.com/user-attachments/assets/321c9ce7-2cd7-4e55-abf3-1667195d0a92)
+![image](https://github.com/user-attachments/assets/3bccf208-133a-4e19-8af3-7eb60a3c2330)
+![image](https://github.com/user-attachments/assets/c51d641b-7382-4ffd-985a-f02013183006)
+![image](https://github.com/user-attachments/assets/ebbccbb0-58d1-43ce-bd24-11001b29f8f4)
+![image](https://github.com/user-attachments/assets/d95021e7-f4be-45e7-9a02-79463b98c233)
+![image](https://github.com/user-attachments/assets/cfb44e31-9dbd-4a16-82d4-f3b1af88c255)
+
+
+## Insights
+Cluster Descriptions: 
+  - "Cluster 1: High-Spending Professionals. This segment is characterized by high income, high total spending ('MntTotal'), and a moderate number of children at home. They 
+   tend to purchase wine and meat products frequently." 
+  - "Cluster 2: Budget-Conscious Families. This segment has moderate income, lower total spending, and a higher number of children at home. They are more price-sensitive and 
+   tend to make more purchases using discounts."
+
+Business Implications:
+  - "Cluster 1: High-Spending Professionals. This segment represents a valuable target for premium products and personalized offers. They are less price-sensitive and more 
+   likely to respond to targeted marketing campaigns focused on quality and exclusivity."
+  - "Cluster 2: Budget-Conscious Families. This segment is more likely to respond to promotions and discounts. They might be interested in bundled offers or loyalty 
+   programs."
+
+## Recommendations: 
+- "Develop targeted marketing campaigns for each cluster, tailored to their specific needs and preferences."
+- "Consider developing new products or services that cater to the needs of specific clusters."
+- "Implement a loyalty program to reward high-value customers in Cluster 1."
+
+## Limitations:
+- "The K-means algorithm is sensitive to the initial choice of centroids, and the results might vary slightly with different initializations." 
+- "The data is from a single e-commerce platform and might not be representative of all customers." 
+- "The analysis is based on past purchase behavior and might not accurately predict future behavior."
+
+
