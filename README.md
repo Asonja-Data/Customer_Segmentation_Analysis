@@ -13,7 +13,6 @@ Inclusions:
 - Insights and recommendations
 ## Dataset Descriptions
 - File Name: Customer_Segmentation_Analysis.ipynb
-[Data source]{https://www.kaggle.com/code/analystoleksandra/marketing-analytics-customer-segmentatio}
-- Data Source: https://www.kaggle.com/code/analystoleksandra/marketing-analytics-customer-segmentation 
+  https://www.kaggle.com/code/analystoleksandra/marketing-analytics-customer-segmentation}
 - Size: 2205 rows x 39 columns 
 - Column Description
