@@ -1,4 +1,34 @@
 # Customer_Segmentation_Analysis
+
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Scope](#scope)
+3. [Column Description](#column-description)
+4. [Data Loading and Cleaning](#data-loading-and-cleaning)
+   - [Installation and Setup](#installation-and-setup)
+   - [Load the Dataset](#load-the-dataset)
+   - [Check Data Structure](#check-data-structure)
+   - [Convert Date Column to DateTime](#convert-date-column-to-datetime)
+5. [Descriptive Statistics](#descriptive-statistics)
+   - [Age Distribution](#age-distribution)
+   - [Gender Distribution](#gender-distribution)
+6. [Time Series Analysis](#time-series-analysis)
+   - [Monthly Sales Trend](#monthly-sales-trend)
+   - [Daily Sales Trend](#daily-sales-trend)
+7. [Customer and Product Analysis](#customer-and-product-analysis)
+   - [Total Spending per Customer](#total-spending-per-customer)
+   - [Purchase Frequency](#purchase-frequency)
+   - [Top-Selling Product Categories](#top-selling-product-categories)
+   - [Revenue Contribution by Product Category](#revenue-contribution-by-product-category)
+8. [Visualization](#visualization)
+   - [Customer Segmentation using RFM Analysis](#customer-segmentation-using-rfm-analysis)
+     - [Compute RFM Metrics](#compute-rfm-metrics)
+     - [Apply K-Means with Optimal K](#apply-k-means-with-optimal-k)
+9. [Recommendations](#recommendations)
+10. [Repository Structure](#repository-structure)
+11. [Author](#author)
+12. [License](#license)
+
 ## Overview
 This project focuses on customer segmentation on a dataset from an e-commerce platform using data analysis techniques. The objective is to clean, analyze, and understand customer behavior and segment them into different groups based on their purchasing patterns.
 
