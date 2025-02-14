@@ -134,16 +134,6 @@ K-means clustering was applied to segment customers based on behaviour and purch
   
 - Step 4: Cluster profiling
 
-## Visualization
-
-![image](https://github.com/user-attachments/assets/c7764bca-f22b-42d6-868a-5329f0dfc460)
-![image](https://github.com/user-attachments/assets/321c9ce7-2cd7-4e55-abf3-1667195d0a92)
-![image](https://github.com/user-attachments/assets/3bccf208-133a-4e19-8af3-7eb60a3c2330)
-![image](https://github.com/user-attachments/assets/c51d641b-7382-4ffd-985a-f02013183006)
-![image](https://github.com/user-attachments/assets/ebbccbb0-58d1-43ce-bd24-11001b29f8f4)
-![image](https://github.com/user-attachments/assets/d95021e7-f4be-45e7-9a02-79463b98c233)
-![image](https://github.com/user-attachments/assets/cfb44e31-9dbd-4a16-82d4-f3b1af88c255)
-
 
 ## Insights
 Cluster Descriptions: 
