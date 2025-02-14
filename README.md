@@ -11,9 +11,12 @@ Inclusions:
 - Customer Segmentation using K-Means Clustering
 - Visualization
 - Insights and recommendations
+
+## Data source
+<a
+
 ## Dataset Descriptions
 - File Name: Customer_Segmentation_Analysis.ipynb
-- Data source: https://www.kaggle.com/code/analystoleksandra/marketing-analytics-customer-segmentation}
 - Size: 2205 rows x 39 columns 
 - Column Description
 
