@@ -13,7 +13,7 @@ Inclusions:
 - Insights and recommendations
 
 ## Data source
-<a
+- <a href="https://github.com/Asonja-Data/Customer_Segmentation_Analysis/blob/main/ifood_df.csv">Dataset</a>
 
 ## Dataset Descriptions
 - File Name: Customer_Segmentation_Analysis.ipynb
